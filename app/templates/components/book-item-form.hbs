@@ -25,9 +25,15 @@
 			{{!--
 			{{select-picker content=libraries optionsLabelPath="content.name"}} 
 			--}}
-			<select id="111" class="form-control" name="sss" {{action (mut item) value="target.value"}}>
+			<select 
+				id="111" 
+				class="form-control" 
+				name="sss" 
+				{{action "libraryChanged" 
+				value="target.value"}}
+			>
 				{{#each libraries as |library|}}
-					<option value="{{library.id}}" selected={{eq library item.library}}>{{library.name}}</option>
+					<option value="{{library.id}}" selected={{eq library.id item.library.id}}>{{library.name}}</option>
 				{{/each}}
 			</select>
 			
