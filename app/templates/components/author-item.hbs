@@ -1,0 +1,19 @@
+<div class="panel panel-default author-item">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{item.name}}</h3>
+	</div>
+	<div class="panel-body">
+		<p>Books: {{item.books.length}}</p>
+		<hr>
+
+		{{#each item.books as |book|}}
+			<p>
+				<i>{{book.title}}</i> <br/>
+				({{book.releaseYear}})
+			</p>
+		{{/each}}
+	</div>
+	<div class="panel-footer text-right">
+		{{yield}}
+	</div>
+</div>

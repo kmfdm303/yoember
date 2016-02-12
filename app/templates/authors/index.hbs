@@ -1,0 +1,12 @@
+<h2>List</h2>
+
+<div class="row">
+	{{#each model as |author|}}
+		<div class="col-md-4">
+			{{#author-item item=author}}
+				{{#link-to 'authors.edit' author.id class="btn btn-success btn-xs"}}Edit{{/link-to}}
+				<button class="btn btn-danger btn-xs" {{action 'deleteAuthor' author}}>Delete</button>
+			{{/author-item}}
+		</div>
+	{{/each}}
+</div>

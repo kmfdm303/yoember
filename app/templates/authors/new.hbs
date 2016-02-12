@@ -1,0 +1,12 @@
+<h2>Add a new Author</h2>
+
+<div class="row">
+	<div class="col-md-6">
+		{{author-item-form item=model buttonLabel="Add to author list" action="saveAuthor"}}
+	</div>
+	<div class="col-md-4">
+		{{#author-item item=model}}
+			<br>
+		{{/author-item}}
+	</div>
+</div>

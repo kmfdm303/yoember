@@ -1,0 +1,38 @@
+<h1>Contact Us</h1>
+<div class="container-fluid">
+	{{#if responseMessage}}
+		<div class="alert alert-success">
+			<h4>Thanks, message sent</h4>
+			<p>To: {{model.emailAddress}}</p>
+			<p>Message: {{model.message}}</p>
+			<p>Reference ID: {{model.id}}</p>
+		</div>
+
+	{{else}}
+			<div class="form-horizontal form-group form-group-lg {{if model.isValidEmail 'has-success'}} row has-feedback">
+				<label class="control-label" for="emailAddress">Email Address</label>
+				{{input type="text" class="form-control" value=model.emailAddress id="emailAddress"}}
+				{{#if model.isValidEmail}}
+				<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				{{/if}}
+			</div>
+
+			<div class="form-horizontal form-group form-group-lg {{if model.isValidMessage 'has-success'}} row has-feedback">
+				<label class="control-label" for="message">Message</label>
+				{{textarea class="form-control" placeholder="(At least 5 characters.)" value=model.message id="message" rows="7"}}
+				{{#if model.isValidMessage}}
+				<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				{{/if}}
+			</div>
+
+			<div class="form-horizontal form-group form-group-lg row pull-right">
+				<button 
+					class="btn btn-primary"
+					disabled="{{unless model.isValid 'disabled'}}"
+					{{action 'sendMessage' model}}
+				>
+					Send Message
+				</button>
+			</div>
+	{{/if}}
+</div>
